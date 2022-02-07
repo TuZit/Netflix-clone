@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "../axios";
-// import Youtube from "react-youtube";
-// import movieTrailer from "movie-trailer";
+import Youtube from "react-youtube";
+import movieTrailer from "movie-trailer";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
 
 import "./Row.scss";
-const base_url = "http://image.tmdb.org/t/p/original/";
+const base_url = "https://image.tmdb.org/t/p/original/";
 
 function Row({ title, fetchURL, isLargeRow }) {
   const [movies, settMovies] = useState([]);
@@ -33,18 +33,18 @@ function Row({ title, fetchURL, isLargeRow }) {
     },
   };
 
-  // const handleClick = (movie) => {
-  //   if (trailerUrl) {
-  //     setTrailerUrl("");
-  //   } else {
-  //     movieTrailer(movie?.name || "")
-  //       .then((url) => {
-  //         const urlParams = new URLSearchParams(new URL(url).search);
-  //         setTrailerUrl(urlParams.get("v"));
-  //       })
-  //       .catch((err) => console.log(err));
-  //   }
-  // };
+  const handleClick = (movie) => {
+    if (trailerUrl) {
+      setTrailerUrl("");
+    } else {
+      movieTrailer(movie?.name || "")
+        .then((url) => {
+          const urlParams = new URLSearchParams(new URL(url).search);
+          setTrailerUrl(urlParams.get("v"));
+        })
+        .catch((err) => console.log(err));
+    }
+  };
 
   return (
     <div className="row-container">
@@ -70,13 +70,13 @@ function Row({ title, fetchURL, isLargeRow }) {
               className={`row__posters-items ${
                 isLargeRow && "row__posterLarge"
               }`}
-              // onClick={() => handleClick(movie)}
+              onClick={() => handleClick(movie)}
             />
           </SwiperSlide>
         ))}
       </Swiper>
 
-      {/* {trailerUrl && <Youtube videoId={trailerUrl} opts={opts} />} */}
+      {trailerUrl && <Youtube videoId={trailerUrl} opts={opts} />}
     </div>
   );
 }

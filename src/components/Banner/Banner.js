@@ -28,7 +28,7 @@ function Banner() {
       className="banner"
       style={{
         backgroundSize: "cover",
-        backgroundImage: `url("http://image.tmdb.org/t/p/original/${
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${
           movie.backdrop_path || movie.poster_path
         }")`,
         backgroundPosition: "center center",
