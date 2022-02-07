@@ -60,7 +60,7 @@ function Row({ title, fetchURL, isLargeRow }) {
         className="row__posters"
       >
         {movies.map((movie, index) => (
-          <SwiperSlide>
+          <SwiperSlide key={index}>
             <img
               key={movie.id}
               src={`${base_url}${
