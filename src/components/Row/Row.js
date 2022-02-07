@@ -4,7 +4,7 @@ import Youtube from "react-youtube";
 import movieTrailer from "movie-trailer";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper";
+import { Navigation } from "swiper";
 
 import "./Row.scss";
 const base_url = "https://image.tmdb.org/t/p/original/";
@@ -56,7 +56,8 @@ function Row({ title, fetchURL, isLargeRow }) {
         pagination={{
           clickable: true,
         }}
-        modules={[Navigation, Autoplay]}
+        navigation={true}
+        modules={[Navigation]}
         className="row__posters"
       >
         {movies.map((movie, index) => (
