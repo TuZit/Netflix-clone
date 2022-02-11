@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "../axios";
+import instance from "../axios";
 import request from "../request";
 import "./Banner.scss";
 
@@ -8,7 +8,7 @@ function Banner() {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get(request.fetchTrending);
+      const res = await instance.get(request.fetchTrending);
       setMovie(
         res.data.results[
           Math.floor(Math.random() * res.data.results.length) - 1
