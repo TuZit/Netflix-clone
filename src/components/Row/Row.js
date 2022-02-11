@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "../axios";
+import instance from "../axios";
 import Youtube from "react-youtube";
 import movieTrailer from "movie-trailer";
 
@@ -15,7 +15,7 @@ function Row({ title, fetchURL, isLargeRow }) {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get(fetchURL);
+      const res = await instance.get(fetchURL);
       //   console.log(res);
       settMovies(res.data.results);
       return res;
